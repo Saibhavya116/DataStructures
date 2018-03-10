@@ -33,6 +33,7 @@ int main()
 	std::cout<<"Deleting a node from the back"<<std::endl;
 	list.deleteNodeAtBack();
 	list.printList();
+
 	return 0;
 
 } /* namespace DataStructures */
