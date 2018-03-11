@@ -115,11 +115,15 @@ bool SinglyLinkedList::search(int data)
 void SinglyLinkedList::printList()
 {
 	Node *temp = head;
-	std::cout<<"Current list is - ";
+	std::cout<<"Current list is : ";
 	while(temp != NULL)
 	{
-		std::cout<< temp->data<<"\t";
+		std::cout<< temp->data;
 		temp = temp->next;
+		if(temp)
+		{
+			std::cout<<" => ";
+		}
 	}
 	trash.push_back(temp);
 	std::cout<<std::endl;
@@ -157,5 +161,46 @@ void SinglyLinkedList::deleteNode(bool at_front)
 		temp = NULL;
 		delete temp;
 	}
+}
+void SinglyLinkedList::rearranage(void)
+{
+	if(head == NULL || head->next == NULL || head->next->next == NULL)
+	{
+		std::cerr << "List has less than two nodes."<<
+					" Can't rearrange !"<< std::endl;
+		return;
+	}
+	// Front runner pointer - method
+	SinglyLinkedList::Node *curr_ptr = head;
+	SinglyLinkedList::Node *fast_ptr = head->next;
+	//iterate to the end
+	while(fast_ptr->next != NULL )
+	{
+		if(fast_ptr->next->next != NULL)
+		{
+			fast_ptr = fast_ptr->next->next; //even nodes
+		}
+		else
+		{
+			fast_ptr = fast_ptr->next; // odd number of nodes
+		}
+		curr_ptr = curr_ptr->next;
+	}
+	fast_ptr = head;
+
+	while((curr_ptr->next != NULL) && (fast_ptr != curr_ptr))
+	{
+		Node *temp = curr_ptr->next;
+		curr_ptr->next = temp->next;
+		temp->next = fast_ptr->next;
+		fast_ptr->next = temp;
+		fast_ptr = fast_ptr->next->next;
+		trash.push_back(temp);
+	}
+	trash.push_back(curr_ptr);
+	trash.push_back(fast_ptr);
+	return;
+	//trash.push_back(curr_ptr);
+//	trash.push_back(fast_ptr);
 }
 } /* namespace DataStructures */

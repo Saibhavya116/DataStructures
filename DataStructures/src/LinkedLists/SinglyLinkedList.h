@@ -26,7 +26,7 @@ public:
 	void deleteNodeAtBack(void);
 	bool search(int data);//assuming a list of unique values
 	void printList();
-
+	void rearranage(void);
 private:
 	Node *head;
 	Node *tail;
