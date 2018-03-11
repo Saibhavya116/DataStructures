@@ -1,20 +1,15 @@
 /*
- * LinkedLists.cpp
+ * SinglyLinkedLists.cpp
  *
  *  Created on: Mar 7, 2018
  *      Author: Saibhavya
  */
 
-#include "LinkedLists.h"
+#include "SinglyLinkedList.h"
 #include <stdio.h>
 #include <iostream>
 namespace DataStructures {
-namespace
-{
-	void deleteNode(bool front); // true - front, false - back
-
-}
-LinkedList::LinkedList(Node *head_ptr)
+SinglyLinkedList::SinglyLinkedList(Node *head_ptr)
 {
 	if(head_ptr)
 	{
@@ -31,7 +26,7 @@ LinkedList::LinkedList(Node *head_ptr)
 	}
 }
 
-LinkedList::~LinkedList()
+SinglyLinkedList::~SinglyLinkedList()
 {
 	//address memory leaks
 	std::vector<Node *>::iterator itr = trash.begin();
@@ -55,7 +50,7 @@ LinkedList::~LinkedList()
 	std::cout << "Done!"<<std::endl;
 }
 
-void LinkedList::insertNodeAtFront(int data)
+void SinglyLinkedList::insertNodeAtFront(int data)
 {
 	Node *temp = new Node();
 	temp->data = data;
@@ -68,7 +63,7 @@ void LinkedList::insertNodeAtFront(int data)
 	trash.push_back(temp);
 }
 
-void LinkedList::insertNodeAtBack(int data)
+void SinglyLinkedList::insertNodeAtBack(int data)
 {
 	Node *temp = new Node();
 	temp->data = data;
@@ -87,17 +82,17 @@ void LinkedList::insertNodeAtBack(int data)
 	tail->next = NULL;
 }
 
-void LinkedList::deleteNodeAtFront(void)
+void SinglyLinkedList::deleteNodeAtFront(void)
 {
 
 	deleteNode(true);
 }
 
-void LinkedList::deleteNodeAtBack(void)
+void SinglyLinkedList::deleteNodeAtBack(void)
 {
 	deleteNode(false);
 }
-bool LinkedList::searchHelper(Node *curr, int data)
+bool SinglyLinkedList::searchHelper(Node *curr, int data)
 {
 	if(curr == NULL)
 	{
@@ -109,7 +104,7 @@ bool LinkedList::searchHelper(Node *curr, int data)
 	}
 	return searchHelper(curr->next,data);
 }
-bool LinkedList::search(int data)
+bool SinglyLinkedList::search(int data)
 {
 	//using recursion
 	Node *curr = head;
@@ -117,7 +112,7 @@ bool LinkedList::search(int data)
 	trash.push_back(curr);
 	return found;
 }
-void LinkedList::printList()
+void SinglyLinkedList::printList()
 {
 	Node *temp = head;
 	std::cout<<"Current list is - ";
@@ -129,7 +124,7 @@ void LinkedList::printList()
 	trash.push_back(temp);
 	std::cout<<std::endl;
 }
-void LinkedList::deleteNode(bool at_front)
+void SinglyLinkedList::deleteNode(bool at_front)
 {
 	if(head == NULL)
 	{

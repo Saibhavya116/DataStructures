@@ -11,15 +11,15 @@
 #include <vector>
 namespace DataStructures {
 
-class LinkedList {
+class SinglyLinkedList {
 public:
 	struct Node
 	{
 		int data;
 		Node *next;
 	};
-	LinkedList(Node* head_ptr = NULL);
-	virtual ~LinkedList();
+	SinglyLinkedList(Node* head_ptr = NULL);
+	virtual ~SinglyLinkedList();
 	void insertNodeAtFront(int data);
 	void insertNodeAtBack(int data);
 	void deleteNodeAtFront(void);

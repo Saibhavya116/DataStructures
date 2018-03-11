@@ -5,17 +5,17 @@
  *      Author: Saibhavya
  */
 
-#include "LinkedLists.h"
+#include "SinglyLinkedList.h"
 #include <iostream>
 int main()
 {
 	using namespace DataStructures;
 	std::cout << " In main "<< std::endl;
 //	Node *firstNode = new Node();
-	LinkedList::Node *firstNode = new LinkedList::Node();
+	SinglyLinkedList::Node *firstNode = new SinglyLinkedList::Node();
 	firstNode->data = 100;
 	firstNode->next = NULL;
-	LinkedList list(firstNode);
+	SinglyLinkedList list(firstNode);
 	list.printList();
 	std::cout<<"Deleting a node from the front"<<std::endl;
 	list.deleteNodeAtFront();
