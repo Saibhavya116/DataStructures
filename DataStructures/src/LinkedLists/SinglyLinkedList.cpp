@@ -8,6 +8,7 @@
 #include "SinglyLinkedList.h"
 #include <stdio.h>
 #include <iostream>
+#include <unordered_set>
 namespace DataStructures {
 SinglyLinkedList::SinglyLinkedList(Node *head_ptr)
 {
@@ -200,7 +201,31 @@ void SinglyLinkedList::rearranage(void)
 	trash.push_back(curr_ptr);
 	trash.push_back(fast_ptr);
 	return;
-	//trash.push_back(curr_ptr);
-//	trash.push_back(fast_ptr);
+}
+/*
+ * deleteDupsWithHashSet - Space & time Complexity - O(n)
+ */
+void SinglyLinkedList::deleteDupsWithHashSet(void)
+{
+	std::unordered_set<int> elements;
+	if((head == NULL) || (head->next == NULL))
+	{
+		std::cout << "Empty/single element list"<< std::endl;
+	}
+	Node *temp = head;
+	Node *prev = NULL;
+	while(temp != NULL)
+	{
+		if(elements.find(temp->data) != elements.end())
+		{
+			prev->next = temp->next;
+		}
+		else
+		{
+			elements.insert(temp->data);
+			prev = temp;
+		}
+		temp = temp ->next;
+	}
 }
 } /* namespace DataStructures */
