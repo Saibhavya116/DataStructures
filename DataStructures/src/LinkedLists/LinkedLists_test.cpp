@@ -72,7 +72,7 @@ namespace DataStructures
 		list.printList();
 
 	}
-	void deleteDupsWithHashSetTest()
+	void deleteDupsTest()
 	{
 		SinglyLinkedList ll;
 		ll.insertNodeAtFront(-1);
@@ -85,13 +85,26 @@ namespace DataStructures
 		ll.insertNodeAtFront(3);
 		ll.deleteDupsWithHashSet();
 		ll.printList();
+		SinglyLinkedList ll2;
+		ll2.insertNodeAtFront(-1);
+		ll2.insertNodeAtFront(1);
+		ll2.insertNodeAtFront(10);
+		ll2.insertNodeAtFront(1);
+		ll2.insertNodeAtBack(2);
+		ll2.insertNodeAtFront(13);
+		ll2.insertNodeAtFront(2);
+		ll2.insertNodeAtFront(3);
+		ll2.deleteDupsWithHashSet();
+		ll2.deleteDups();
+		ll2.printList();
+
 	}
 } // end of the workspace
 
 int main()
 {
 	using namespace DataStructures;
-	deleteDupsWithHashSetTest();
+	deleteDupsTest();
 	//rearrangeSinglyLinkedListTest();
 	return 0;
 

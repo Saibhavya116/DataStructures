@@ -228,4 +228,27 @@ void SinglyLinkedList::deleteDupsWithHashSet(void)
 		temp = temp ->next;
 	}
 }
+
+/*
+ * @deleteDups - memory:O(1), time:O(n^2)
+ */
+void SinglyLinkedList::deleteDups(void)
+{
+	//using two pointer
+	Node *curr = head;
+	while(curr->next != NULL)
+	{
+		Node *runner = curr->next;
+		Node *prev = curr;
+		while(runner != NULL)
+		{
+			if(curr->data == runner->data)
+			{
+				prev->next = runner->next;
+			}
+			runner = runner->next;
+		}
+		curr = curr ->next;
+	}
+}
 } /* namespace DataStructures */

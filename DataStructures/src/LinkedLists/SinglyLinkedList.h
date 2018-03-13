@@ -28,6 +28,7 @@ public:
 	void printList();
 	void rearranage(void);
 	void deleteDupsWithHashSet(void);
+	void deleteDups(void);
 private:
 	Node *head;
 	Node *tail;
