@@ -29,12 +29,14 @@ public:
 	void rearranage(void);
 	void deleteDupsWithHashSet(void);
 	void deleteDups(void);
+	int getKthLastElement(int k_value);
 private:
 	Node *head;
 	Node *tail;
 	std::vector<Node *> trash;
 	void deleteNode(bool at_front);
 	bool searchHelper(Node* curr, int data);
+	int getKthLastElementHelper(Node *curr, int k_value);
 };
 
 } /* namespace DataStructures */

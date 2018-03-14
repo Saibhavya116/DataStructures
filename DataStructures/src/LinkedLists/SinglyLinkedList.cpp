@@ -251,4 +251,30 @@ void SinglyLinkedList::deleteDups(void)
 		curr = curr ->next;
 	}
 }
+
+int SinglyLinkedList::getKthLastElementHelper(Node *curr, int k_value)
+{
+	if(curr == NULL)
+	{
+		return 0;
+	}
+	int idx = getKthLastElementHelper(curr->next, k_value);
+	idx += 1;
+	if(k_value == idx)
+	{
+		std::cout <<k_value<< "nd/th value from the end is "<< curr->data << std::endl;
+	}
+	return idx;
+}
+int SinglyLinkedList::getKthLastElement(int k_value)
+{
+	if(head == NULL)
+	{
+		std::cerr << " Empty list received "<<std::endl;
+		return -INT32_MAX;
+	}
+	return getKthLastElementHelper(head, k_value);
+}
+
+
 } /* namespace DataStructures */

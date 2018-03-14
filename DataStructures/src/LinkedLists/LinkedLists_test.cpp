@@ -99,13 +99,25 @@ namespace DataStructures
 		ll2.printList();
 
 	}
+	void getKthElementTest()
+	{
+		SinglyLinkedList ll2;
+		ll2.insertNodeAtFront(-1);
+		ll2.insertNodeAtFront(1);
+		ll2.insertNodeAtFront(10);
+		ll2.insertNodeAtFront(3);
+		ll2.printList();
+		int res = ll2.getKthLastElement(2);
+		std::cout << "index "<< res << std::endl;
+	}
 } // end of the workspace
 
 int main()
 {
 	using namespace DataStructures;
-	deleteDupsTest();
+	//deleteDupsTest();
 	//rearrangeSinglyLinkedListTest();
+	getKthElementTest();
 	return 0;
 
 } /* namespace DataStructures */
